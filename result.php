@@ -1,5 +1,9 @@
 <?php
+session_start();
 include_once("includes/header.php");
+if (isset($_SESSION['single'])) {
+    $contact = (array)json_decode($_SESSION['single']);
+}
 ?>
 <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
 <link href="css/create.css" rel="stylesheet" media="all">
@@ -7,64 +11,71 @@ include_once("includes/header.php");
         <div class="wrapper wrapper--w680">
             <div class="card card-1">
                 <div class="card-body">
-                    <h2 class="title">Create contact</h2>
-                    <form method="POST" action="includes/process.php">
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="first name" name="firstname">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="last name" name="lastname">
-                                </div>
-                            </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <h1>Contact</h1>
                         </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="Phone Number" name="phone">
-                                </div>
-                            </div>
+                        <div class="col-2">
+                            <a href="edit.php?fname=<?=$contact['fname']."&&lname=".$contact['lname']?>" class="btn btn--radius btn--green">Edit</a>
                         </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="email" placeholder="email" name="email">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="Street address" name="street">
-                                </div>
-                            </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>Name:</h5> 
                         </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="state">
-                                    <option disabled="disabled" selected="selected">State</option>
-                                    <option>Class 1</option>
-                                    <option>Class 2</option>
-                                    <option>Class 3</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
+                        <div class="col-2">
+                            <?=$contact['fname']?>
+                            <?=$contact['lname']?>                             
                         </div>
-                        <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="City" name="city">
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>Phone Number:</h5> 
                         </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-1" type="text" placeholder="Zip Code" name="zip">
-                                </div>
-                            </div>
+                        <div class="col-2">
+                            <?=$contact['email']?>
                         </div>
-                        <div class="p-t-20">
-                            <input class="btn btn--radius btn--green" type="submit" name="create" value="Submit" />
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>Email:</h5> 
                         </div>
-                    </form>
+                        <div class="col-2">
+                            <?=$contact['email']?>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>Street Address:</h5> 
+                        </div>
+                        <div class="col-2">
+                            <?=$contact['street']?>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>State:</h5> 
+                        </div>
+                        <div class="col-2">
+                            <?=$contact['state']?>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>City:</h5> 
+                        </div>
+                        <div class="col-2">
+                            <?=$contact['city']?>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                           <h5>zip code:</h5> 
+                        </div>
+                        <div class="col-2">
+                            <?=$contact['zip']?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

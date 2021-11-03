@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\map;
+
 /**
  * @author student <student@mymail.com>
  * @license MIT
@@ -26,8 +29,34 @@
    public function find_contact($fname, $lname)
    {
       $data = $this->get_contacts_dir();
-      var_dump($data);
-      exit;
+      $found = null;
+      foreach ($data as $entry) {
+         $tmp = (array) json_decode($entry);
+         if(array_search($fname, $tmp) && array_search($lname, $tmp)) {
+            $found = $entry;
+            break;
+         }
+      }
+      return $found != null ? $found : false;
+   }
+
+   public function update_contact($contact)
+   {
+      $data = $this->get_contacts_dir();
+      $updated = [];
+      foreach ($data as $entry) {
+         $tmp = (array) json_decode($entry);
+         if(array_search($contact['fname'], $tmp) && array_search($contact['lname'], $tmp)) {
+            array_push($updated, json_encode($contact));
+            break;
+         }
+         else{
+            array_push($updated, $entry);
+         }
+      }
+      file_put_contents($this->filename, json_encode($updated));
+      $_SESSION['message'] = "Contact updated successfully";
+      return true;
    }
 
    public function get_contacts_dir()
