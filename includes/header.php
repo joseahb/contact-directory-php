@@ -27,6 +27,9 @@
         <div class="nav-links">
             <ul>
                 <li>
+                  <a href="create.php">Add contact</a>
+                </li>
+                <li>
                   <a href="index.php" target="">Return to Dir <img src="return.svg" width="15" alt="return-icon">
                   </a>
                 </li>
