@@ -1,4 +1,8 @@
 <?php 
+/**
+ * @author student <student@mymail.com>
+ * @license MIT
+ */
 require_once("includes/header.php");
 ?>
 

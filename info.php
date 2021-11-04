@@ -1,4 +1,8 @@
-<?php 
+<?php
+/**
+ * @author student <student@mymail.com>
+ * @license MIT
+ */
 session_start();
 require_once("includes/header.php");
 ?>

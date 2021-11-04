@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author student <student@mymail.com>
+ * @license MIT
+ */
 include_once("includes/header.php");
 ?>
 <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">

@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author student <student@mymail.com>
+ * @license MIT
+ */
+
 session_start();
 include_once("includes/header.php");
 if (isset($_SESSION['single'])) {

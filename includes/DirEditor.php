@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @author student <student@mymail.com>
  * @license MIT
@@ -26,10 +25,14 @@ include("lock_file.php");
          file_put_contents($this->filename, json_encode($data));
          $this->file->releaseLock();
          chmod($this->filename, 0755);
+         $_SESSION['message'] = "Contact inserted successfully";
+         return true;
+      }
+      else {
+         $_SESSION['message'] = "Failed to acquire lock";
+         return false;
       }
 
-      $_SESSION['message'] = "Contact inserted successfully";
-      return true;
    }
 
    public function find_contact($fname, $lname)

@@ -29,11 +29,11 @@
       // Create the locked file, the 'x' parameter is used to detect a preexisting lock
       $fp = @fopen($this->filename, 'x');
       // If an error occurs fail lock
-      if ($fp === false) return false;
+      if ($fp === false) return 'false lock';
       // If the permission set is unsuccessful fail lock
-      if (!@chmod($this->filename, $this->permission)) return false;
+      if (!@chmod($this->filename, $this->permission)) return 'false unsuccess';
       // If unable to write the timeout value fail lock
-      if (false === @fwrite($fp, time() + intval($this->timeout))) return false;
+      if (false === @fwrite($fp, time() + intval($this->timeout))) return 'false timeout';
       // If lock is successfully closed validate lock
       return fclose($fp);
     }
