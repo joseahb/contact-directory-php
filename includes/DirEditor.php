@@ -121,7 +121,8 @@ class DirEditor {
       } else {
          $message = "The directory does not exists or permission properly set";
          $_SESSION['message'] = $message;
-         return false;
+         header('Location: ../info.php');
+         exit;
       }
    }
 }
