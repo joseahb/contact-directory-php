@@ -16,15 +16,15 @@ if (isset($_SESSION['single'])) {
         <div class="wrapper wrapper--w680">
             <div class="card card-1">
                 <div class="card-body">
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin: 2rem auto;">
                         <div class="col-2">
-                            <h1>Contact</h1>
+                            <h1 style="color:darkblue;">Contact</h1>
                         </div>
                         <div class="col-2">
                             <a href="edit.php?fname=<?=$contact['fname']."&&lname=".$contact['lname']?>" class="btn btn--radius btn--green">Edit</a>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>Name:</h5> 
                         </div>
@@ -33,7 +33,7 @@ if (isset($_SESSION['single'])) {
                             <?=$contact['lname']?>                             
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>Phone Number:</h5> 
                         </div>
@@ -41,7 +41,7 @@ if (isset($_SESSION['single'])) {
                             <?=$contact['email']?>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>Email:</h5> 
                         </div>
@@ -49,7 +49,7 @@ if (isset($_SESSION['single'])) {
                             <?=$contact['email']?>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>Street Address:</h5> 
                         </div>
@@ -57,7 +57,7 @@ if (isset($_SESSION['single'])) {
                             <?=$contact['street']?>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>State:</h5> 
                         </div>
@@ -65,7 +65,7 @@ if (isset($_SESSION['single'])) {
                             <?=$contact['state']?>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>City:</h5> 
                         </div>
@@ -73,7 +73,7 @@ if (isset($_SESSION['single'])) {
                             <?=$contact['city']?>
                         </div>
                     </div>
-                    <div class="row row-space">
+                    <div class="row row-space" style="margin-bottom: 1rem; font-size: 18px">
                         <div class="col-2">
                            <h5>zip code:</h5> 
                         </div>

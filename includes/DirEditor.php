@@ -7,7 +7,7 @@
 
 include("lock_file.php");
 class DirEditor {
-   private $filename = 'directory.txt';
+   const FILENAME = 'directory.txt';
    private $file;
 
    /**
@@ -16,7 +16,7 @@ class DirEditor {
    function __construct() {
       session_start();
       $this->check_dir_file();
-      $this->file = new Exclusive_Lock($this->filename, 2);
+      $this->file = new Exclusive_Lock(self::FILENAME, 2);
    }
 
    /**
@@ -30,7 +30,7 @@ class DirEditor {
       $data = $this->get_contacts_dir();
       array_push($data, $newContact);
       if ($this->file->acquireLock()) {
-         file_put_contents($this->filename, json_encode($data));
+         file_put_contents(self::FILENAME, json_encode($data));
          $this->file->releaseLock();
          $_SESSION['message'] = "Contact inserted successfully";
          return true;
@@ -69,14 +69,14 @@ class DirEditor {
     * @param Array $contact
     * @return boolean
     */
-   public function update_contact($contact)
+   public function update_contact($contact, $oldfname, $oldlname)
    {
       $data = $this->get_contacts_dir();
       $updated = [];
       // Find single contact and replace record
       foreach ($data as $record) {
          $tmp = (array) json_decode($record);
-         if($tmp['fname'] == $contact['oldfname'] && $tmp['lname'] == $contact['oldlname'] ) {
+         if($tmp['fname'] == $oldfname && $tmp['lname'] == $oldlname ) {
             array_push($updated, json_encode($contact));
             continue;
          }
@@ -86,7 +86,7 @@ class DirEditor {
       }
       // write updated records to file
       if ($this->file->acquireLock()) {
-         file_put_contents($this->filename, json_encode($updated));
+         file_put_contents(self::FILENAME, json_encode($updated));
          $this->file->releaseLock();
          $_SESSION['message'] = "Contact updated successfully";
          return true;
@@ -104,7 +104,7 @@ class DirEditor {
     */
    public function get_contacts_dir()
    {
-      $recoveredData = file_get_contents($this->filename);
+      $recoveredData = file_get_contents(self::FILENAME);
       $recoveredArray = json_decode($recoveredData, true);
       $recoveredArray === null ? $recoveredArray = []: true;
       return $recoveredArray;
@@ -116,7 +116,7 @@ class DirEditor {
     * @return boolean
     */
    function check_dir_file() {
-      if (file_exists($this->filename) && is_writable($this->filename) && is_readable($this->filename)) {
+      if (file_exists(self::FILENAME) && is_writable(self::FILENAME) && is_readable(self::FILENAME)) {
          return true;
       } else {
          $message = "The directory does not exists or permission properly set";

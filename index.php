@@ -10,13 +10,14 @@ require_once("includes/header.php");
     <div class="s003">
       <form action="includes/process.php" method="GET">
         <input type="hidden" name="q" value="find">
+        <label style="font-size: 18px; color: #f8abff; margin-bottom: 3rem">Search Contact:</label>
         <div class="inner-form">
           <div class="input-field second-wrap">
-            <input name="fname" id="fname" type="text" placeholder="Enter Firstname" />
+            <input name="fname" id="fname" type="text" placeholder="First Name" />
           </div>
 
           <div class="input-field second-wrap">
-            <input name="lname" id="lname" type="text" placeholder="Enter LastName" />
+            <input name="lname" id="lname" type="text" placeholder="Last Name" />
           </div>
           <div class="input-field third-wrap">
             <button class="btn-search" type="submit">

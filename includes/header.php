@@ -35,4 +35,7 @@
                 </li>
             </ul>
         </div>
+      </div>      <div style="background-color: #a598ee;color:#2f2f57; padding: 3rem auto; text-align: right; font-size: 18px; font-weight: bold">
+      last modified: 
+              <?=date ("F d Y H:i:s.", getlastmod())?>
       </div>

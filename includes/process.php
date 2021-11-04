@@ -127,8 +127,6 @@
             exit;
         }
         $contact = array(
-            'oldfname' => $_POST['oldfname'],
-            'oldlname' => $_POST['oldlname'],
             'fname' => $_POST['firstname'],
             'lname' => $_POST['lastname'],
             'email' => $_POST['email'],
@@ -138,7 +136,7 @@
             'state' => $_POST['state'],
             'zip' => $_POST['zip']
         );
-        $direditor->update_contact($contact);
+        $direditor->update_contact($contact,$_POST['oldfname'],$_POST['oldlname'] );
         header("Location: ../info.php");
     }
 
