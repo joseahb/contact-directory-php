@@ -14,6 +14,9 @@ include_once("includes/header.php");
                 <div class="card-body">
                     <h2 class="title">Update contact</h2>
                     <form method="POST" action="includes/process.php">
+                        <input type="hidden" name="oldfname" value="<?=$contact['fname']?>">
+                        <input type="hidden" name="oldlname" value="<?=$contact['lname']?>">
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">

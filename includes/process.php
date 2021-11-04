@@ -39,6 +39,8 @@
     }
     if (isset($_POST['update_contact'])) {
         $contact = array(
+            'oldfname' => $_POST['oldfname'],
+            'oldlname' => $_POST['oldlname'],
             'fname' => $_POST['firstname'],
             'lname' => $_POST['lastname'],
             'email' => $_POST['email'],
