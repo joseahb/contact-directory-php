@@ -48,9 +48,11 @@ include_once("includes/header.php");
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="state">
                                     <option disabled="disabled" selected="selected">State</option>
-                                    <option>Class 1</option>
-                                    <option>Class 2</option>
-                                    <option>Class 3</option>
+                                    <option>California</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                    <option>Florida</option>
+                                    <option>Virginia</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>

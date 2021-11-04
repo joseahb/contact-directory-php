@@ -1,7 +1,8 @@
 <?php
-  /*
-  Reference Material
-  http://en.wikipedia.org/wiki/ACID
+  /**
+  * @author student <student@mymail.com>
+  * @license MIT
+  * reference Wikipedia ACID
   */
   class Exclusive_Lock {
     /* Private variables */

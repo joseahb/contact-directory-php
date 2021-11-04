@@ -6,19 +6,59 @@
     $direditor = new DirEditor();
     
     if (isset($_POST['create'])) {
-        if ($direditor->check_dir_file()) {
-            $contact = array(
-                'fname' => $_POST['firstname'], 
-                'lname' => $_POST['lastname'],
-                'email' => $_POST['email'],
-                'phone' => $_POST['phone'],
-                'street' => $_POST['street'],
-                'city' => $_POST['city'],
-                'state' => $_POST['state'],
-                'zip' => $_POST['zip'],
-            );
-            $direditor->insert_contact($contact);
+        // Validate
+        if (empty($_POST['firstname'])) {
+            $_SESSION['message'] = "Contact first name is required";
+            header("Location: ../info.php");
+            exit;
         }
+        if (empty($_POST['lastname'])) {
+            $_SESSION['message'] = "Contact last name is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        if (empty($_POST['email'])) {
+            $_SESSION['message'] = "Contact email is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        if (empty($_POST['phone'])) {
+            $_SESSION['message'] = "Contact phone number is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        if (empty($_POST['street'])) {
+            $_SESSION['message'] = "Contact Street address is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        if (empty($_POST['state'])) {
+            $_SESSION['message'] = "Contact state is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        if (empty($_POST['city'])) {
+            $_SESSION['message'] = "Contact city is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        if (empty($_POST['zip'])) {
+            $_SESSION['message'] = "Contact zip is required";
+            header("Location: ../info.php");
+            exit;
+        }
+        // New Contact array
+        $contact = array(
+            'fname' => $_POST['firstname'], 
+            'lname' => $_POST['lastname'],
+            'email' => $_POST['email'],
+            'phone' => $_POST['phone'],
+            'street' => $_POST['street'],
+            'city' => $_POST['city'],
+            'state' => $_POST['state'],
+            'zip' => $_POST['zip'],
+        );
+        $direditor->insert_contact($contact);
         header("Location: ../info.php");
     }
     if (isset($_GET['q'])) {
